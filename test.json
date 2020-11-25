@@ -1,0 +1,70 @@
+{
+  "application": {
+    "name": "Calc-4-Operators",
+    "networks": [
+      {
+        "id": "net1",
+        "address": "192.168.1.0/24"
+      },
+      {
+        "id": "net2",
+        "address": "192.168.2.0/24"
+      }
+    ],
+    "routers": [
+      {
+        "id": "rt__1",
+        "interfaces": [
+          {
+            "in-network": "net1",
+            "address": "192.168.1.254"
+          },
+          {
+            "in-network": "public",
+            "address": "192.168.37.128"
+          }
+        ]
+      },
+      {
+        "id": "rt__2",
+        "interfaces": [
+          {
+            "in-network": "net1",
+            "address": "192.168.1.253"
+          },
+          {
+            "in-network": "net2",
+            "address": "192.168.2.254"
+          }
+        ]
+      }
+    ],
+    "machines": [
+      {
+        "id": "Calc",
+        "image": "alpine-node",
+        "in-network": "net1"
+      },
+      {
+        "id": "Sum",
+        "image": "alpine-node",
+        "in-network": "net2"
+      },
+      {
+        "id": "Sub",
+        "image": "alpine-node",
+        "in-network": "net2"
+      },
+      {
+        "id": "Mul",
+        "image": "alpine-node",
+        "in-network": "net2"
+      },
+      {
+        "id": "Div",
+        "image": "alpine-node",
+        "in-network": "net2"
+      }
+    ]
+  }
+}
